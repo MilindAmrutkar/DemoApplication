@@ -52,9 +52,7 @@ class WelcomeActivity : AppCompatActivity() {
         submitButton.setOnClickListener {
 
             var intent = Intent(this, DisplayMessage::class.java)
-
-
-
+            //This change is done by me
             when (submitButton.text) {
 
                 "Learn" -> {
