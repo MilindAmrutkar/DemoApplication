@@ -16,6 +16,7 @@ class WelcomeActivity : AppCompatActivity() {
     lateinit var twoButton: Button
     lateinit var threeButton: Button
     lateinit var submitButton: Button
+    lateinit var closeAlertBtn: Button
 
     lateinit var display: TextView
 
@@ -68,15 +69,21 @@ class WelcomeActivity : AppCompatActivity() {
 
                 "Finish" -> {
                     var alert = AlertDialog.Builder(this)
-                    alert.setMessage("You Are Done")
-                    alert.setPositiveButton("OK", { dialogInterface: DialogInterface, i: Int ->
-                        finish()
-                    })
+//                    alert.setMessage("You Are Done")
+//                    alert.setPositiveButton("OK", { dialogInterface: DialogInterface, i: Int ->
+//                        finish()
+//                    })
+                    var v = layoutInflater.inflate(R.layout.alert_layout, null)
+                    alert.setView(v)
+                    closeAlertBtn = v.findViewById<Button>(R.id.btn_closeAlert)
                     alert.setCancelable(false)
+                    closeAlertBtn.setOnClickListener {
+                        finish()
+                    }
+
                     alert.show()
                 }
             }
-
 
 
         }
